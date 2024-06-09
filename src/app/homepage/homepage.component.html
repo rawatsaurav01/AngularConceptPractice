@@ -1,0 +1,59 @@
+<div class="navbar">
+    <h1>Practice Assignment</h1>
+    <ul>
+        <li><a (click)="assignment()">ASSIGNMENT</a></li>
+        <li><a (click)="pipes()">Pipes Example</a></li>
+        <li><a (click)="templateDrivenForm()">Template Driven Form</a></li>
+        <li><a (click)="reactiveForm()">Reactive Form</a></li>
+    </ul>
+</div>
+
+<h1>----------------------HOME PAGE--------------------------</h1>
+
+
+<button >ASSIGNMENT</button>
+<h1>Homepage</h1>
+
+<app-post [fromParent]='parentMessage' (messageEvent)='receiveMessage($event)'></app-post>
+
+<h2>{{message}}</h2>
+
+
+<h2>{{fromChildOutput}}</h2>
+
+<h1>----------------------HOME PAGE--------------------------</h1>
+
+
+<h1 [class.text-red]="bool">CLASS BINDING EXAMPLE</h1>
+
+
+<!--reference of style names can be taken from w3school-->
+<h1 [style.backgroundColor]="bool?'red':'blue'" [style.color]="bool?'black':'red'"  >STYLE BINDING EXAMPLE</h1>
+
+
+<!--event binding and event filtering -->
+<input type="text" (keyup)="onKeyup()"/>
+<br/>
+<br/>
+<input type="text" (keyup)="onKeyupAdv($event.keyCode)"/>
+<br/>
+<br/>
+<!--event filtering (Cleaner approach in angular ) -->
+<input type="text" (keyup.enter)="onKeyup()"/>
+<br/>
+<br/>
+<!--template variable-->
+<input type="text" (keyup.enter)="onKeyupTemplateVariable($event)"/>
+<br/>
+<br/>
+<!--template variable (Cleaner approach in angular )-->
+<!--#username is a template variable-->
+<input type="text" (keyup.enter)="onKeyupTemplateVariableAngular(username.value)" #username/>
+<br/>
+<br/>
+<!--two way data binding-->
+<!--we use two way data binding when we want to fetch data from view to ts file-->
+<input type="text" (keyup.enter)="onKeyup2way()" [(ngModel)]="userName"/>
+<br/>
+<br/>
+

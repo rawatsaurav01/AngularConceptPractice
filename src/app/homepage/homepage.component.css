@@ -1,0 +1,19 @@
+.text-red{
+    color: red;
+}
+
+.navbar{
+    width: 100%;
+    background-color: blueviolet;
+}
+.navbar ul {
+    display: flex;
+}
+
+.navbar ul li{
+    display: inline;
+    background-color: none;
+    font-size: 20px;
+    margin-left: 10px;
+    float: right;
+}

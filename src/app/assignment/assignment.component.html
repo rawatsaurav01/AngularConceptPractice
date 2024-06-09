@@ -1,0 +1,21 @@
+<div class="form-input">
+    <input type="text" placeholder="Enter post title" [(ngModel)]="postTitle"/>
+    <br><br>
+    <textarea rows="20" cols="30" placeholder="Post Details" [(ngModel)]="postDescription"></textarea>
+    <br><br>
+    <input type="text" placeholder="Post image URL" [(ngModel)]="imageURL"/>
+    <br><br>
+    <input type="text" placeholder="More details URL" [(ngModel)]="postURL"/>
+    <br><br>
+    <input type="checkbox" [(ngModel)]="changeBackground" />CHANGE BACKGROUND
+</div>
+
+<hr>
+<div class="form-output">
+
+    <h1><span [class.add-background]="changeBackground" >{{postTitle}}</span></h1>
+    <p>{{postDescription}}</p>
+    <img [src]="imageURL"/>
+    <a [href]="postURL" target="_blank" [style.display]="postURL? 'block':'none' ">More details</a>
+
+</div>
