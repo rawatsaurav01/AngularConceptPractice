@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AppComponent } from './app.component';
 import { AssignmentComponent } from './assignment/assignment.component';
+import { CustomValidationComponent } from './custom-validation/custom-validation.component';
 import { HomepageComponent } from './homepage/homepage.component';
 import { PipesComponent } from './pipes/pipes.component';
 import { ReactiveFormComponent } from './reactive-form/reactive-form.component';
@@ -27,7 +28,12 @@ const routes: Routes = [
   {
     path:'reactiveform',
     component:ReactiveFormComponent
+  },
+  {
+    path:'customValidation',
+    component:CustomValidationComponent
   }
+  
 
 ];
 

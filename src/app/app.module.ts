@@ -13,6 +13,7 @@ import { AppendPipe } from './CustomPipes/append.pipe';
 import { SummaryPipe } from './CustomPipes/summary.pipe';
 import { TemplateDrivenFormsComponent } from './template-driven-forms/template-driven-forms.component';
 import { ReactiveFormComponent } from './reactive-form/reactive-form.component';
+import { CustomValidationComponent } from './custom-validation/custom-validation.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { ReactiveFormComponent } from './reactive-form/reactive-form.component';
     AppendPipe,
     SummaryPipe,
     TemplateDrivenFormsComponent,
-    ReactiveFormComponent
+    ReactiveFormComponent,
+    CustomValidationComponent
   ],
   imports: [
     BrowserModule,

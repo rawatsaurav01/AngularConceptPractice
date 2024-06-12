@@ -75,5 +75,9 @@ export class HomepageComponent implements AfterViewInit{
   reactiveForm(){
     this.router.navigate(['reactiveform']);
   }
+
+  customValidation(){
+    this.router.navigate(['customValidation']);
+  }
   
 }

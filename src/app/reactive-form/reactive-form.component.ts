@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 
-import { FormGroup,FormControl, Validators } from '@angular/forms';
+import { FormGroup,FormControl, Validators, FormArray } from '@angular/forms';
 
 @Component({
   selector: 'app-reactive-form',
@@ -13,6 +13,37 @@ export class ReactiveFormComponent {
   emailRegex:string="[a-z0-9._%+\-]+@[a-z0-9.\-]+\.[a-z]{2,}$";
 
   contactRegex:string="[789][0-9]{9}"
+
+
+  /** FormBuilder 
+  
+  constructor(fb:FormBuilder){
+
+    this.form=fb.group({
+      fullName:['',[
+        Validators.required,
+        Validators.minLength(5)
+      ]],
+
+      email:['',[
+        Validators.required,
+        Validators.email
+      ]],
+
+      contactDetails:fb.group({
+        address:['',Validators.required],
+        shippingAddress:['',Validators.required],
+        contactNumber:['',[
+          Validators.required,
+          Validators.pattern(this.contactRegex)
+        ]]
+      }),
+      skills:fb.array([])
+    })
+  }
+
+
+  */
 
   constructor(){
 
@@ -28,8 +59,9 @@ export class ReactiveFormComponent {
         [Validators.required,Validators.pattern(this.contactRegex)]),
         shippingAddress:new FormControl('',[Validators.required]),
         address:new FormControl("",[Validators.required])
-      })
+      }),
       
+      skills:new FormArray([])
     });
   }
 
@@ -58,4 +90,21 @@ export class ReactiveFormComponent {
     console.log(this.form.value);
   }
 
+
+  addSkills(skills:HTMLInputElement){
+    (this.form.get('skills') as FormArray).push(
+      new FormControl(skills.value)
+    );
+    
+    skills.value='';
+    console.log(this.form.value);
+  }
+
+  get Skills(){
+    return this.form.get('skills');
+  }
+
+  removeSkill(index){
+    this.Skills.removeAt(index);
+  }
 }
